@@ -1,0 +1,80 @@
+ <div class="signup bg-pri">
+<div class="container py-5">
+    <div class="row gx-0">
+        <div class="col-md-6 ">
+            <div class="img h-100" >
+                <img src="../../assets/images/gaming.ebaf2ffc84f4451d.jpg" class="w-100 h-100" alt="">
+            </div>
+        </div>
+        <div class="col-md-6 bg-sec px-2">
+            <div>
+                <form [formGroup]="registerForm"  (ngSubmit)="signUp()" class="text-center">
+                    <h2 class="text-sec my-4 text-center">Create My Account!</h2>
+
+                    <div *ngIf="errorMes.length" class="alert alert-danger p-2">
+                        <p class="m-0">{{errorMes}}</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div>
+                                <input type="text" formControlName="first_name" class="text-pri w-100 p-2 rounded-2 my-3  bg-pri border-0" placeholder="FirstName">
+                                <div *ngIf="registerForm.get('firstName')?.errors && registerForm.get('firstName')?.touched" class="alert alert-danger p-2">
+                                    <p *ngIf="registerForm.get('firstName')?.getError('required')" class="m-0">This Feild Is Required</p>
+                                    <p *ngIf="registerForm.get('firstName')?.getError('maxlength')" class="m-0">max char length 15</p>
+                                    <p *ngIf="registerForm.get('firstName')?.getError('minlength')" class="m-0">Please Enter Valid Name</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <input type="text" formControlName="last_name" class="text-pri p-2 w-100 rounded-2 my-3 bg-pri border-0"  placeholder="LastName">
+                                <div *ngIf="registerForm.get('lastName')?.errors && registerForm.get('lastName')?.touched" class="alert alert-danger p-2">
+                                    <p *ngIf="registerForm.get('lastName')?.getError('required')" class="m-0">This Feild Is Required</p>
+                                    <p *ngIf="registerForm.get('lastName')?.getError('maxlength')" class="m-0">max char length 15</p>
+                                    <p *ngIf="registerForm.get('lastName')?.getError('minlength')" class="m-0">Please Enter Valid Name</p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="email" formControlName="email" class="text-pri w-100 p-2 rounded-2 my-3 bg-pri border-0"  placeholder="Email">
+                    <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="alert alert-danger p-2">
+                        <p *ngIf="registerForm.get('email')?.getError('required')" class="m-0">This Feild Is Required</p>
+                        <p *ngIf="registerForm.get('email')?.getError('pattern')" class="m-0">Please Enter Valid Email</p>
+                    </div>
+
+
+
+                    <input type="age" formControlName="age" class="text-pri p-2 w-100 rounded-2 my-3 bg-pri border-0"  placeholder="Age">
+                    <div *ngIf="registerForm.get('age')?.errors && registerForm.get('age')?.touched" class="alert alert-danger p-2">
+                        <p *ngIf="registerForm.get('age')?.getError('required')" class="m-0">This Feild Is Required</p>
+                    </div>
+
+
+                    <input type="password" formControlName="password" class="text-pri w-100 p-2 rounded-2 my-3 bg-pri border-0"  placeholder="Password">
+                    <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="alert alert-danger p-2">
+                        <p *ngIf="registerForm.get('password')?.getError('required')" class="m-0">This Feild Is Required</p>
+                        <p *ngIf="registerForm.get('password')?.getError('pattern')" class="m-0">Please Enter srtong Password</p>
+                    </div>
+
+
+                    <button type="submit" [disabled]="registerForm.invalid" class="bg-sec w-100 p-2 text-white border border-1 border-dark rounded-2">
+                        <span *ngIf="isLoading"><i class="fas fa-spinner fa-spin"></i></span>
+                        <span *ngIf="!isLoading">Creat Account</span>
+                        </button>
+
+
+                    <p class="text-sec text-small py-3 border-bottom border-light">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+
+                    <p class="text-sec text-small">Already a member?<a routerLink="/signin" class="ms-2 text-decoration-none">Login></a></p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

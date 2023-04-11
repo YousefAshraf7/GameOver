@@ -1,0 +1,55 @@
+<div class="signIn bg-pri">
+    <div class="container py-5">
+        <div class="row gx-0">
+            <div class="col-md-6 ">
+                <div class="img h-100" >
+                    <img src="../../assets/images/gaming.ebaf2ffc84f4451d.jpg" class="w-100 h-100" alt="">
+                </div>
+            </div>
+            <div class="col-md-6 bg-sec px-2">
+                <div>
+                    <form [formGroup]="signInForm"  (ngSubmit)="signIn()" class="text-center">
+                        <h2 class="text-sec my-4 text-center">Create My Account!</h2>
+    
+                        <div *ngIf="errorMes" class="alert alert-danger p-2">
+                            <p class="m-0">{{errorMes}}</p>
+                        </div>
+    
+  
+    
+                        
+    
+                        <input type="email" formControlName="email" class="text-pri w-100 p-2 rounded-2 my-3 bg-pri border-0"  placeholder="Email">
+                        <div *ngIf="signInForm.get('email')?.errors && signInForm.get('email')?.touched" class="alert alert-danger p-2">
+                            <p *ngIf="signInForm.get('email')?.getError('required')" class="m-0">This Feild Is Required</p>
+                            <p *ngIf="signInForm.get('email')?.getError('pattern')" class="m-0">Please Enter Valid Email</p>
+                        </div>
+    
+    
+    
+                
+    
+    
+                        <input type="password" formControlName="password" class="text-pri w-100 p-2 rounded-2 my-3 bg-pri border-0"  placeholder="Password">
+                        <div *ngIf="signInForm.get('password')?.errors && signInForm.get('password')?.touched" class="alert alert-danger p-2">
+                            <p *ngIf="signInForm.get('password')?.getError('required')" class="m-0">This Feild Is Required</p>
+                            <p *ngIf="signInForm.get('password')?.getError('pattern')" class="m-0">Please Enter srtong Password</p>
+                        </div>
+    
+    
+                        <button type="submit" [disabled]="signInForm.invalid" class="bg-sec w-100 p-2 text-white border border-1 border-dark rounded-2">
+                            <span *ngIf="isLoading"><i class="fas fa-spinner fa-spin"></i></span>
+                            <span *ngIf="!isLoading">Creat Account</span>
+                            </button>
+    
+    
+                        <p class="text-sec text-small py-3 border-bottom border-light">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+    
+                        <p class="text-sec text-small">Already a member?<a routerLink="/signup" class="ms-2 text-decoration-none">signup></a></p>
+    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

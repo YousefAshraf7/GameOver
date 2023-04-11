@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-pri">
+    <div class="container">
+        <img src="../../assets/images/logo.png" alt="">
+        <a href="#" class="fs-2 text-decoration-none text-white me-4">GameOver</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center">
+          <li class="nav-item" *ngIf="loggedIn">
+            <a class="nav-link text-sec "   aria-current="page" routerLink="home" routerLinkActive="btn btn-primary-outline text-primary active">Home</a>
+          </li>
+          <li class="nav-item" *ngIf="loggedIn">
+            <a class="nav-link text-sec  " routerLink="all" routerLinkActive="btn btn-primary-outline text-primary active">All</a>
+          </li>
+
+
+
+          <li class="nav-item dropdown" *ngIf="loggedIn">
+            <a class="nav-link dropdown-toggle text-sec  " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  routerLink="plateforms" routerLinkActive="btn btn-primary-outline text-primary active">
+              PlatForms
+            </a>
+            <ul class="dropdown-menu" >
+              <li><a class="dropdown-item" [routerLink]="['/plateforms', 'pc' ]">PC</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/plateforms', 'browser' ]">Browser</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown" *ngIf="loggedIn"> 
+            <a class="nav-link dropdown-toggle text-sec  "  role="button" data-bs-toggle="dropdown" aria-expanded="false"  routerLinkActive="btn btn-primary-outline text-primary active">
+              sort-by
+            </a>
+            <ul class="dropdown-menu">
+              <!-- [routerLink]="['/sortby', "Release-Date"   ]" -->
+              <li><a class="dropdown-item" [routerLink]="['/sortby', 'release-date' ]" >Release-Date</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/sortby', 'popularity' ]" >Popularity</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/sortby', 'alphabetical' ]" >Alphabetical</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/sortby', 'relevance' ]" >Relevance</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown" *ngIf="loggedIn">
+            <a class="nav-link dropdown-toggle text-sec  " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  routerLinkActive="btn btn-primary-outline text-primary active">
+              Categories
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/categories', 'racing' ]">racing</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/categories', 'sports' ]">sports</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/categories', 'social' ]">social</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/categories', 'shooter' ]">shooter</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/categories', 'open-world' ]">openworld</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/categories', 'zombie' ]">zombie</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/categories', 'fantasy' ]">fantasy</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/categories', 'action' ]">action</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/categories', 'flight' ]">flight</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/categories', 'action-rpg' ]">action-rgb</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/categories', 'battle-royale' ]">battle-royale</a></li>
+            </ul>
+          </li>
+
+
+
+
+        </ul>
+
+
+        <ul class="d-flex align-items-center m-0 list-unstyled">
+ 
+            <li *ngIf="!loggedIn">
+              <a  class="d-inline-block me-3 text-decoration-none text-sec "  routerLink="signin" routerLinkActive="btn btn-primary-outline text-primary active">signin</a> 
+            </li>
+            <li *ngIf="!loggedIn" >
+              <a  class="d-inline-block me-3 text-decoration-none text-sec " routerLink="signup" routerLinkActive="btn btn-primary-outline text-primary active">signup</a>
+            </li>
+            <li *ngIf="loggedIn" (click)="logOut()"><a class="d-inline-block me-1 text-decoration-none btn btn-primary-outline text-primary active">Logout</a> </li>
+          </ul>
+
+      </div>
+    </div>
+  </nav>

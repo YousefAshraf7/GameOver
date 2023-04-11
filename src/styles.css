@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+.text-sec{
+    color: #9a9c9e!important;
+}
+.text-pri{
+    color: #aaa!important;
+}
+.bg-sec{
+    background-color:#32383e !important;
+}
+.bg-pri{
+    background-color:#272b30 !important;
+}
+
+.text-small{
+font-size: 14px !important;
+}
